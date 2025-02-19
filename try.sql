@@ -1,1 +1,2 @@
-SELECT  FROM `di-malrokh-sandbox-malrokh.home_work3.external_yellow_tripdata` LIMIT 1000;
+SELECT * FROM {{ source('home_work3', 'external_yellow_tripdata') }}
+LIMIT 1000;
