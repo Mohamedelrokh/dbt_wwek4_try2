@@ -8,6 +8,7 @@ sources:
       - name: green
       - name: yellow
       - name: taxi_zone_lookup  # Adding the taxi zone lookup table as a source
+      - name: fhv
 
 models:
   - name: stg_green_tripdata
@@ -67,3 +68,21 @@ models:
         description: Name of the taxi zone.
       - name: service_zone
         description: Service zone, transformed to replace "Boro" with "Green".
+
+  - name: stg_fhv
+    description: "Staging model for FHV trip data"
+    columns:
+      - name: dispatching_base_num
+        description: "Dispatch base number for the FHV vehicle"
+      - name: pickup_datetime
+        description: "Pickup datetime for the trip"
+      - name: dropOff_datetime
+        description: "Drop-off datetime for the trip"
+      - name: PUlocationID
+        description: "Pickup location ID"
+      - name: DOlocationID
+        description: "Drop-off location ID"
+      - name: SR_Flag
+        description: "Indicates if the trip was a shared ride"
+      - name: Affiliated_base_number
+        description: "The affiliated base number for the FHV"
