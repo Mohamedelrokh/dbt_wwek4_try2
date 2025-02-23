@@ -7,3 +7,4 @@ sources:
     tables:
       - name: green
       - name: yellow
+      - name: quarter
