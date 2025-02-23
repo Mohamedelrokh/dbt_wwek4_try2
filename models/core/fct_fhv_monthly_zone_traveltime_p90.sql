@@ -18,8 +18,6 @@ WITH trip_data AS (
         EXTRACT(YEAR FROM fhv.pickup_datetime) AS year,
         EXTRACT(MONTH FROM fhv.pickup_datetime) AS month
     FROM {{ ref('dim_fhv_trips') }} AS fhv
-    WHERE fhv.pickup_datetime IS NOT NULL
-      AND fhv.dropoff_datetime IS NOT NULL
 ), 
 
 p90 AS (
