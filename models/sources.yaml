@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: week4
+    database: "{{ env_var('DBT_BIGQUERY_PROJECT', 'di-malrokh-sandbox-malrokh') }}"
+    schema:   "{{ env_var('DBT_BIGQUERY_SOURCE_DATASET', 'week4') }}"
+    tables:
+      - name: green
+      - name: yellow

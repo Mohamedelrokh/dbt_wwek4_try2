@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: home_work3  # This must match your reference in the SQL file
-    database: di-malrokh-sandbox-malrokh  # Your BigQuery project ID
-    schema: home_work3  # The dataset/schema name
-    tables:
-      - name: external_yellow_tripdata  # Table name
