@@ -7,7 +7,7 @@
 WITH quarterly_revenue AS (
     -- Calculate total revenue per quarter and service type
     SELECT 
-        ryear_quarter,
+        CONCAT(SUBSTRING(ryear_quarter, 6, 2), '/', SUBSTRING(ryear_quarter, 1, 4)) AS quarter,
         service_type,
         SUM(total_amount) AS revenue
     FROM {{ ref('fact_trips') }}
@@ -17,10 +17,10 @@ WITH quarterly_revenue AS (
 quarterly_revenue_with_previous AS (
     -- Use LAG to calculate previous quarter's revenue
     SELECT 
-        ryear_quarter AS quarter,
+        quarter,
         revenue,
         service_type,
-        LAG(revenue) OVER (PARTITION BY service_type ORDER BY ryear_quarter) AS previous_revenue
+        LAG(revenue) OVER (PARTITION BY service_type ORDER BY quarter) AS previous_revenue
     FROM quarterly_revenue
 ),
 
